@@ -5,7 +5,6 @@
 
 // ITERATION 2
 
-function selectRandom() {}
 
 function pickMystery() {}
 
@@ -70,7 +69,7 @@ const mrsPeacock = {
     age: 36,
     description: "She is from a wealthy family and uses her status and money to earn popularity",
     image: "https://metrouk2.files.wordpress.com/2016/07/mrs-peacock.jpg",
-    color: blue,
+    color: "blue",
 }
 
 
@@ -91,35 +90,77 @@ const suspectsArray = [
 
 
 const weaponsArray = [
-    {name: rope, weight: 10},
-    {name: knife, weight: 8},  
-    {name: candlestick, weight: 2},
-    {name: dumbbell, weight: 30},
-    {name: poison, weight: 2},
-    {name: axe, weight: 15},
-    {name: bat, weight: 13},
-    {name: trophy, weight: 25},
-    {name: pistol, weight: 20},
+    {name: "rope", weight: 10},
+    {name: "knife", weight: 8},  
+    {name: "candlestick", weight: 2},
+    {name: "dumbbell", weight: 30},
+    {name: "poison", weight: 2},
+    {name: "axe", weight: 15},
+    {name: "bat", weight: 13},
+    {name: "trophy", weight: 25},
+    {name: "pistol", weight: 20},
 ]                                                                                                                                                           
 
 
 
 const roomsArray = [
-    {name: Dining-Room},
-    {name: Conservatory},
-    {name: Kitchen},
-    {name: Study},
-    {name: Library},
-    {name: Billiard-Room},
-    {name: Lounge},
-    {name: Ballroom},
-    {name: Hall},
-    {name: Spa},
-    {name: Living-Room},
-    {name: Observatory},
-    {name: Theater},
-    {name: Guest-House},
-    {name: Patio},
+    {name: "Dining-Room"},
+    {name: "Conservatory"},
+    {name: "Kitchen"},
+    {name: "Study"},
+    {name: "Library"},
+    {name: "Billiard-Room"},
+    {name: "Lounge"},
+    {name: "Ballroom"},
+    {name: "Hall"},
+    {name: "Spa"},
+    {name: "Living-Room"},
+    {name: "Observatory"},
+    {name: "Theater"},
+    {name: "Guest-House"},
+    {name: "Patio"},
 ]
 
 // ITERATION 2
+
+function selectRandom(room, weapon, suspect) {
+
+    let randomCard = [];
+
+    const randomIndexroom = Math.floor(Math.random() * room.length);
+
+    const randomRoom = room[randomIndexroom];
+
+    randomCard.push(randomRoom)
+
+    const randomIndexweapon = Math.floor(Math.random() * weapon.length);
+
+    const randomWeapon = weapon[randomIndexweapon];
+
+    randomCard.push(randomWeapon);
+
+    const randomIndexsuspect = Math.floor(Math.random() * suspect.length);
+
+    const randomSuspect = suspect[randomIndexsuspect];
+
+    randomCard.push(randomSuspect);
+
+    console.log(randomCard)
+
+    return randomCard;
+
+}
+
+const randomCard = selectRandom(roomsArray, weaponsArray, suspectsArray)
+
+
+
+
+
+// ITERATION 3
+
+function revealMystery(randomCard) {
+    return `${randomCard[2].firstName} ${randomCard[2].lastName} killed Mr.Boddy using the ${randomCard[1].name} in the ${randomCard[0].name}`
+}
+
+console.log(revealMystery(randomCard))
